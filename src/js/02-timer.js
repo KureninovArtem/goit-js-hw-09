@@ -40,7 +40,7 @@ function timer() {
             clearInterval(interval)
             Notiflix.Notify.success('Success')
             return;
-    };
+    }
         convertMs(difference);
     }, 1000);
 }
