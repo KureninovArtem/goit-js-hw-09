@@ -38,7 +38,7 @@ function timer() {
         const difference = deadline - new Date().getTime();
         if (difference < 0) {
             clearInterval(interval);
-            Notiflix.Notify.success('Success');
+            Notiflix.Notify.success('Success')
             return;
     };
         convertMs(difference);
