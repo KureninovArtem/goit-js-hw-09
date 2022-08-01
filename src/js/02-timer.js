@@ -37,7 +37,7 @@ function timer() {
     interval = setInterval(() => {
         const difference = deadline - new Date().getTime();
         if (difference < 0) {
-            clearInterval(interval);
+            clearInterval(interval)
             Notiflix.Notify.success('Success')
             return;
     };
