@@ -22,7 +22,7 @@ const options = {
         if (selectedDates[0] > new Date()) {
             deadline = selectedDates[0].getTime();
             startBtn.removeAttribute('disabled');
-            startBtn.addEventListener('click', timer());
+            startBtn.addEventListener('click', timer);
             return;
         }
         startBtn.setAttribute('disabled', 'disabled');
