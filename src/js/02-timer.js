@@ -34,20 +34,15 @@ flatpickr(inputElement, options);
 
 function timer() {
     startBtn.setAttribute("disabled", "disabled");
-    interval = setInterval(() => {
+    let interval = setInterval(() => {
         const difference = deadline - new Date().getTime();
-        
-        convertMs(difference);
-        stopInterval();
-    }, 1000);
-}
-
-function stopInterval() {
-    if (difference < 0) {
+        if (difference < 0) {
             clearInterval(interval)
             Notiflix.Notify.success('Success')
             return;
     }
+        convertMs(difference);
+    }, 1000);
 }
 
 function convertMs(ms) {
