@@ -34,7 +34,7 @@ flatpickr(inputElement, options);
 
 function timer() {
     startBtn.setAttribute("disabled", "disabled");
-    interval = setInterval(() => {
+    const interval = setInterval(() => {
         const difference = deadline - new Date().getTime();
         if (difference < 0) {
             clearInterval(interval)
