@@ -22,7 +22,7 @@ const options = {
         if (selectedDates[0] > new Date()) {
             deadline = selectedDates[0].getTime();
             startBtn.removeAttribute('disabled');
-            startBtn.addEventListener('click', timer);
+            startBtn.addEventListener('click', timer());
             return;
         }
         startBtn.setAttribute('disabled', 'disabled');
@@ -34,15 +34,20 @@ flatpickr(inputElement, options);
 
 function timer() {
     startBtn.setAttribute("disabled", "disabled");
-    const interval = setInterval(() => {
+    interval = setInterval(() => {
         const difference = deadline - new Date().getTime();
-        if (difference < 0) {
+        
+        convertMs(difference);
+        stopInterval();
+    }, 1000);
+}
+
+function stopInterval() {
+    if (difference < 0) {
             clearInterval(interval)
             Notiflix.Notify.success('Success')
             return;
     }
-        convertMs(difference);
-    }, 1000);
 }
 
 function convertMs(ms) {
@@ -63,7 +68,5 @@ function convertMs(ms) {
 }
 
 function addLeadingZero(value) {
-    // formatValue = value.padStart(2, '0');
-    // return (formatValue);
     return (value.padStart(2, '0'));
 }
