@@ -20,11 +20,11 @@ function input(event) {
 function start(event) {
   event.preventDefault();
   for (let i = 0; i < amount; i++) {
+    createPromise(i + 1, delay);
+    delay += step;
     if (i + 1 === amount) {
       delay = 0;
     }
-    createPromise(i + 1, delay);
-    delay += step;
   }
 }
 
